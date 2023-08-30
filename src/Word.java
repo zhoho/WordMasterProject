@@ -47,7 +47,10 @@ public class Word {
     @Override
     public String toString(){
         String slevel = "";
-        for(int i = 0; i < level; i++) slevel = slevel + "*";
+        char ch = '*';
+        for(int i = 0; i < level; i++){
+            slevel = new StringBuilder(slevel).append(ch).toString();
+        }
         String str = String.format("%-3s", slevel) + String.format("%15s", word) + "  " + meaning;
         return super.toString();
     }
