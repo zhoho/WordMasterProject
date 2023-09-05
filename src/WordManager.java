@@ -7,13 +7,18 @@ public class WordManager {
         wordCRUD = new WordCRUD(in);
     }
     public int selectMenu(){
-        System.out.print("*** 영단어 마스터 ***\n*********************\n1.모든 단어 보기\n2.수준별 단어 보기\n3.단어 검색\n4.단어 추가\n5.단어 수정\n6.단어 삭제\n7.파일 저장\n0.나가기\n********************\n=>원하는 메뉴는?");
+        System.out.print("*********************\n1.모든 단어 보기\n2.수준별 단어 보기\n3.단어 검색\n4.단어 추가\n5.단어 수정\n6.단어 삭제\n7.파일 저장\n0.나가기\n********************\n=>원하는 메뉴는? ");
         return in.nextInt();
     }
     public void start(){
+        System.out.println("*** 영단어 마스터 ***");
         while(true) {
             int menu = selectMenu();
-            if(menu == 0)  break;
+            if(menu == 0)
+            {
+                System.out.println("프로그램 종료! 다음에 만나요~");
+                break;
+            }
             if(menu == 4){
                 wordCRUD.addItem();
             }
@@ -38,7 +43,7 @@ public class WordManager {
             {
                 System.out.println("todo");
             }
-            System.out.println(menu);
+//            System.out.println(menu);
         }
     }
 }
