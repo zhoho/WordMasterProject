@@ -40,17 +40,17 @@ public class WordCRUD implements ICRUD{
 
     }
     public void listAll(){
-        System.out.println("-------------------");
+        System.out.println("------------------------------");
         for(int i = 0; i < list.size(); i++){
             System.out.print((i + 1) + " ");
             System.out.println(list.get(i).toString());
         }
-        System.out.println("-------------------");
+        System.out.println("------------------------------");
     }
 
     public ArrayList<Integer> listAll(String keyword){
         ArrayList<Integer> idlist = new ArrayList<>();
-        System.out.println("-------------------");
+        System.out.println("------------------------------");
         int j = 0;
         for(int i = 0; i < list.size (); i++){
             String word = list.get(i).getWord();
@@ -60,7 +60,7 @@ public class WordCRUD implements ICRUD{
             idlist.add(i);
             j++;
         }
-        System.out.println("-------------------");
+        System.out.println("------------------------------");
         return idlist;
     }
 
