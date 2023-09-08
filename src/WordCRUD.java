@@ -1,9 +1,13 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class WordCRUD implements ICRUD{
     ArrayList<Word> list;
+    final String fname = "Dictionary.txt";
     Scanner in;
     WordCRUD(Scanner in){
         list = new ArrayList<>();
@@ -99,4 +103,26 @@ public class WordCRUD implements ICRUD{
         Word word = list.get(idlist.get(id - 1));
         word.setMeaning(meaning);
     }
+
+public void loadFile(){
+    try {
+        BufferedReader br = new BufferedReader(new FileReader(fname));
+        String line;
+        int count = 0;
+        while (true) {
+            line = br.readLine();
+            if (line == null) break;
+            String[] data = line.split("\\|"); //문자열 인식을 위해
+            int level = Integer.parseInt(data[0]);
+            String word = data[1];
+            String meaning = data[2];
+            list.add(new Word(0, level, word, meaning));
+            count++;
+        }
+        br.close();
+        System.out.println("==> " + count + "개 로딩 완료!!");
+    }catch (IOException e) {
+        e.printStackTrace();
+    }
+}
 }
