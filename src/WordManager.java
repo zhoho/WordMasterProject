@@ -33,7 +33,7 @@ public class WordManager {
             }
             else if(menu == 3)
             {
-                System.out.println("todo");
+                wordCRUD.searchWord();
             }
             else if(menu == 5){
                 wordCRUD.updateItem();
