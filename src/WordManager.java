@@ -29,7 +29,7 @@ public class WordManager {
             }
             else if(menu == 2)
             {
-                System.out.println("todo");
+                wordCRUD.searchLevel();
             }
             else if(menu == 3)
             {
