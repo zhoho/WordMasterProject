@@ -43,7 +43,7 @@ public class WordManager {
             }
             else if(menu == 7)
             {
-                System.out.println("todo");
+                wordCRUD.saveFile();
             }
 //            System.out.println(menu);
         }

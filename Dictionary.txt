@@ -6,3 +6,4 @@
 1| transfer|옮기다, 이동하다
 1| tennis|테니스
 2| mouse|마우스, 쥐
+1| can|캔, 할 수 있다
