@@ -2,14 +2,16 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
-
+import java.sql.Connection;
 public class WordCRUD implements ICRUD{
     ArrayList<Word> list;
     final String fname = "Dictionary.txt";
+    Connection conn;
     Scanner in;
     WordCRUD(Scanner in){
         list = new ArrayList<>();
         this.in = in;
+        conn = DBConnection.getConnection();
     }
     @Override
     public Object add() {
