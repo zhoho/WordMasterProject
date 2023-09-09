@@ -1,9 +1,13 @@
 import java.io.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 import java.sql.Connection;
 public class WordCRUD implements ICRUD{
+    String selectall = "select * from dictionary";
     ArrayList<Word> list;
     final String fname = "Dictionary.txt";
     Connection conn;
@@ -12,6 +16,25 @@ public class WordCRUD implements ICRUD{
         list = new ArrayList<>();
         this.in = in;
         conn = DBConnection.getConnection();
+    }
+    public void loadData(){
+        list.clear();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(selectall);
+            while(true){
+                if(!rs.next()) break;
+                int id = rs.getInt("id");
+                int level = rs.getInt("level");
+                String word = rs.getString("word");
+                String meaning = rs.getString("meaning");
+                list.add(new Word(id, level, word, meaning));
+            }
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
     @Override
     public Object add() {
@@ -44,6 +67,7 @@ public class WordCRUD implements ICRUD{
 
     }
     public void listAll(){
+        loadData();
         System.out.println("------------------------------");
         for(int i = 0; i < list.size(); i++){
             System.out.print((i + 1) + " ");
