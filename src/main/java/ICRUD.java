@@ -1,6 +1,6 @@
 public interface ICRUD {
-    public Object add();
-    public int update(Object obj);
-    public int delete(Object obj);
-    public void selectOne(int id);
+    public int add(Word one);
+    public int update(String meaning, int id);
+    public int delete(int id);
+
 }

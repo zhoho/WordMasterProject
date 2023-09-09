@@ -12,7 +12,7 @@ public class WordManager {
         return in.nextInt();
     }
     public void start(){
-        wordCRUD.loadFile();
+        wordCRUD.loadData();
         System.out.println("*** 영단어 마스터 ***");
         while(true) {
             int menu = selectMenu();

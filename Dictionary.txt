@@ -1,9 +1,10 @@
-3| superintendent|관리자, 감독관
-1| electric|전기의, 전기를 생산하는
-2| equipment|장비, 용품
-1| pole|기둥, 장대
-1| formerly|이전에, 예전에
-1| transfer|옮기다, 이동하다
-1| tennis|테니스
-2| mouse|마우스, 쥐
-1| can|캔, 할 수 있다
+3|superintendent|수퍼인탠던드트
+1|electric|전기의, 전기를 생산하는
+2|equipment|장비, 용품
+1|pole|기둥, 장대
+1|formerly|이전에, 예전에
+1|transfer|옮기다, 이동하다
+1|tennis|테니스
+2|mouse|마우스, 쥐
+3| papago|파파고
+2| test|테스트
