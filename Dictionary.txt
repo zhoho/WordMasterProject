@@ -6,5 +6,5 @@
 1|transfer|옮기다, 이동하다
 1|tennis|테니스
 2|mouse|마우스, 쥐
-3| papago|파파고
+3| papago|파파공
 2| test|테스트

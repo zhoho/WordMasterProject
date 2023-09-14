@@ -173,14 +173,14 @@ public class WordCRUD implements ICRUD{
         in.nextLine();
         System.out.println("=> 정말 삭제하시겠습니까?(y (Y),n) ");
         String check = in.next();
-        if(check.equalsIgnoreCase("y ")){
+        if(check.equalsIgnoreCase("y")){
 //            list.remove((int)idlist.get(id-1));
             int retval = delete(id);
             if(retval > 0) System.out.println("단어가 삭제되었습니다.");
             else System.out.println("단어가 삭제되지않았습니다.");
         }
         else{
-            System.out.println("단어가 삭제되지않았습니다.");
+            System.out.println("단어가 삭제되지않았습니다!!!.");
         }
         String meaning = in.nextLine();
         Word word = list.get(idlist.get(id - 1));
