@@ -149,7 +149,7 @@ public class WordCRUD implements ICRUD{
         System.out.print("=> 수정할 단어 검색 : ");
         String keyword = in.next();
         ArrayList<Integer> idlist = this.listAll(keyword);
-        System.out.print("=> 수정할 번호(id) 선택, id로 수정하려면 i+번호입력 ex)i2 : ");
+        System.out.print("=> 수정할 번호 선택, id로 수정하려면 i+번호입력 ex)i2 : ");
         String input = in.next();
         int id;
         if(input.charAt(0) == 'i'){
