@@ -112,7 +112,7 @@ public class WordCRUD implements ICRUD{
         loadData();
         System.out.println("------------------------------");
         for(int i = 0; i < list.size(); i++){
-            //System.out.print((i + 1) + " ");
+            System.out.print((i + 1) + ") ");
             System.out.println(list.get(i).toString());
         }
         System.out.println("------------------------------");
@@ -125,7 +125,7 @@ public class WordCRUD implements ICRUD{
         for(int i = 0; i < list.size (); i++){
             String word = list.get(i).getWord();
             if(!word.contains(keyword)) continue;
-//            System.out.print( + " ");
+            System.out.print((j+1) + ") ");
             System.out.println(list.get(i).toString());
             idlist.add(i);
             j++;
@@ -140,7 +140,7 @@ public class WordCRUD implements ICRUD{
         for (Word word : list) {
             int ilevel = word.getLevel();
             if (ilevel != level) continue;
-//            System.out.print((j + 1) + " ");
+            System.out.print((j + 1) + ") ");
             System.out.println(word.toString());
             j++;
         }
@@ -151,7 +151,7 @@ public class WordCRUD implements ICRUD{
         System.out.println("=> 수정할 단어 검색 : ");
         String keyword = in.next();
         ArrayList<Integer> idlist = this.listAll(keyword);
-        System.out.println("=> 수정할 번호 선택 : ");
+        System.out.println("=> 수정할 번호(id) 선택 : ");
         int id = in.nextInt();
         in.nextLine();
         System.out.println("=> 뜻 입력 : ");
@@ -168,7 +168,7 @@ public class WordCRUD implements ICRUD{
         System.out.println("=> 삭제할 단어 검색 : ");
         String keyword = in.next();
         ArrayList<Integer> idlist = this.listAll(keyword);
-        System.out.println("=> 삭제할 번호 선택 : ");
+        System.out.println("=> 삭제할 번호(id) 선택 : ");
         int id = in.nextInt();
         in.nextLine();
         System.out.println("=> 정말 삭제하시겠습니까?(y (Y),n) ");
@@ -182,9 +182,9 @@ public class WordCRUD implements ICRUD{
         else{
             System.out.println("단어가 삭제되지않았습니다!!!.");
         }
-        String meaning = in.nextLine();
-        Word word = list.get(idlist.get(id - 1));
-        word.setMeaning(meaning);
+//        String meaning = in.nextLine();
+//        Word word = list.get(idlist.get(id - 1));
+//        word.setMeaning(meaning);
     }
 
 //public void loadFile(){
