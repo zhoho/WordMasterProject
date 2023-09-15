@@ -8,8 +8,6 @@ import java.util.Scanner;
 
 public class WordCRUD implements ICRUD{
     final String selectall = "select * from dictionary";
-
-//    final String select
     final String WORD_INSERT = "insert into dictionary (level, word, meaning, regdate) " + "values (?,?,?,?) ";
     final String WORD_UPDATE = "update dictionary set meaning = ? where id = ? ";
     final String WORD_DELETE = "delete from dictionary where id = ? ";
@@ -148,16 +146,22 @@ public class WordCRUD implements ICRUD{
      }
 
     public void updateItem() {
-        System.out.println("=> 수정할 단어 검색 : ");
+        System.out.print("=> 수정할 단어 검색 : ");
         String keyword = in.next();
         ArrayList<Integer> idlist = this.listAll(keyword);
-        System.out.println("=> 수정할 번호(id) 선택 : ");
-        int id = in.nextInt();
+        System.out.print("=> 수정할 번호(id) 선택, id로 수정하려면 i+번호입력 ex)i2 : ");
+        String input = in.next();
+        int id;
+        if(input.charAt(0) == 'i'){
+            id = input.charAt(1) - '0';
+        }
+        else{
+            int tmp = input.charAt(0) - '0';
+            id = list.get(tmp - 1).getId();
+        }
         in.nextLine();
         System.out.println("=> 뜻 입력 : ");
         String meaning = in.nextLine();
-        //Word word = list.get(idlist.get(id - 1));
-//        word.setMeaning(meaning);
         int retval = update(meaning, id);
         if(retval > 0) System.out.println("단어가 수정되었습니다 .");
         else System.out.println("\n단어가 수정되지않았습니다 에러!\n");
@@ -168,8 +172,17 @@ public class WordCRUD implements ICRUD{
         System.out.println("=> 삭제할 단어 검색 : ");
         String keyword = in.next();
         ArrayList<Integer> idlist = this.listAll(keyword);
-        System.out.println("=> 삭제할 번호(id) 선택 : ");
-        int id = in.nextInt();
+//        int id = in.nextInt();
+        System.out.println("=> 삭제할 번호 선택, id로 삭제하려면 i+번호입력 ex)i2 : ");
+        String input = in.next();
+        int id;
+        if(input.charAt(0) == 'i'){
+            id = input.charAt(1) - '0';
+        }
+        else{
+            int tmp = input.charAt(0) - '0';
+            id = list.get(tmp - 1).getId();
+        }
         in.nextLine();
         System.out.println("=> 정말 삭제하시겠습니까?(y (Y),n) ");
         String check = in.next();
@@ -182,34 +195,14 @@ public class WordCRUD implements ICRUD{
         else{
             System.out.println("단어가 삭제되지않았습니다!!!.");
         }
-//        String meaning = in.nextLine();
-//        Word word = list.get(idlist.get(id - 1));
-//        word.setMeaning(meaning);
     }
 
-//public void loadFile(){
-//    try {
-//        BufferedReader br = new BufferedReader(new FileReader(fname));
-//        String line;
-//        int count = 0;
-//        while (true) {
-//            line = br.readLine();
-//            if (line == null) break;
-//            String[] data = line.split("\\|"); //문자열 인식을 위해
-//            int level = Integer.parseInt(data[0]);
-//            String word = data[1];
-//            String meaning = data[2];
-//            list.add(new Word(0, level, word, meaning));
-//            count++;
-//        }
-//        br.close();
-//        System.out.println("==> " + count + "개 로딩 완료!!");
-//    }catch (IOException e) {
-//        e.printStackTrace();
-//    }
-//}
-
     public void saveFile() {
+        try {
+            Statement stmt = conn.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         try {
             PrintWriter pr = new PrintWriter(new FileWriter(fname));
             for(Word one : list) {

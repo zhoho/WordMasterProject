@@ -45,7 +45,6 @@ public class WordManager {
             {
                 wordCRUD.saveFile();
             }
-//            System.out.println(menu);
         }
     }
 }
